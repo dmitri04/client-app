@@ -1,0 +1,46 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">{{ titulo }}</div>
+  <div class="card-body">
+
+    <form>
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="persona.nombre" name="nombre">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="paterno" class="col-form-label col-sm-2">Apellido Paterno</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="persona.paterno" name="paterno">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="materno" class="col-form-label col-sm-2">Apellido Materno</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="persona.materno" name="materno">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="edad" class="col-form-label col-sm-2">Edad</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="persona.edad" name="edad">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!persona.id else elseBlock">Crear</button>
+
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

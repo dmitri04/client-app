@@ -1,0 +1,42 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Personas</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de personas</h5>
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/personas/form']">
+        Crear Persona
+      </button>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>nombre</th>
+          <th>apellido paterno</th>
+          <th>apellido materno</th>
+          <th>edad</th>
+          <th>
+            editar
+          </th>
+          <th>eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of personas">
+          <td>{{ persona.id }}</td>
+          <td>{{ persona.nombre }}</td>
+          <td>{{ persona.paterno }}</td>
+          <td>{{ persona.materno }}</td>
+          <td>{{ persona.edad }}</td>
+          <td>
+            <button type="button" name="editar" [routerLink]="['/personas/form', persona.id]" class="btn btn-primary btn-sm">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click)='delete(persona)' class="btn btn-danger btn-sm">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
